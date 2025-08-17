@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wanderlust Tours - Your Adventure Awaits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- N8N Chatbot Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- N8N Chatbot Customization (Aesthetically Pleasing Palette) --- */
+        :root {
+            --chat--color-primary: #16b3ac;
+            --chat--color-primary-shade-50: #0e7c81;
+            --chat--color-primary-shade-100: #145267;
+            --chat--color-secondary: #faf3e3;
+            --chat--color-secondary-shade-50: #f3e1c1;
+            --chat--color-dark: #293845;
+            --chat--color-light: #f8fafc;
+            --chat--color-white: #293845;
+            --chat--color-typing: #8caab9;
+            --chat--color-disabled: #b1b5ba;
+
+            --chat--spacing: 1rem;
+            --chat--border-radius: 0.5rem;
+            --chat--transition-duration: 0.3s;
+
+            --chat--window--width: min(95vw, 400px);
+            --chat--window--height: min(90vh, 600px);
+
+            --chat--header--height: auto;
+            --chat--header--padding: var(--chat--spacing);
+            --chat--header--background: var(--chat--color-primary);
+            --chat--header--color: #fff; /* White header text for contrast */
+            --chat--header--border-radius: 1rem 1rem 0 0;
+
+            --chat--window--background: var(--chat--color-dark);
+            --chat--window--border-radius: 1rem;
+
+            --chat--message--font-size: 1rem;
+            --chat--message--padding: var(--chat--spacing);
+            --chat--message--border-radius: 1rem;
+            --chat--message--line-height: 1.8;
+
+            --chat--message--bot--background: var(--chat--color-secondary);
+            --chat--message--bot--color: var(--chat--color-dark);
+            --chat--message--bot--border: none;
+
+            --chat--message--user--background: #fff;
+            --chat--message--user--color: var(--chat--color-primary);
+            --chat--message--user--border: none;
+
+            --chat--message--pre--background: rgba(22, 179, 172, 0.07);
+
+            --chat--toggle--background: var(--chat--color-primary);
+            --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+            --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+            --chat--toggle--color: #fff;
+            --chat--toggle--size: 64px;
+
+            --chat--font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md fixed w-full z-20 top-0">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-teal-600">Wanderlust</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#destinations" class="text-gray-600 hover:text-teal-600 transition duration-300">Destinations</a>
+                <a href="#packages" class="text-gray-600 hover:text-teal-600 transition duration-300">Packages</a>
+                <a href="#about" class="text-gray-600 hover:text-teal-600 transition duration-300">About Us</a>
+                <a href="#contact" class="text-gray-600 hover:text-teal-600 transition duration-300">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:block bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition duration-300">Book Now</a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#destinations" class="block text-gray-600 hover:text-teal-600">Destinations</a>
+            <a href="#packages" class="block text-gray-600 hover:text-teal-600">Packages</a>
+            <a href="#about" class="block text-gray-600 hover:text-teal-600">About Us</a>
+            <a href="#contact" class="block text-gray-600 hover:text-teal-600">Contact</a>
+            <a href="#contact" class="block bg-teal-600 text-white text-center mt-2 px-6 py-2 rounded-full hover:bg-teal-700">Book Now</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg h-screen flex items-center justify-center text-white">
+            <div class="text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Your Adventure Awaits</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Discover breathtaking destinations and create unforgettable memories with our curated travel experiences.</p>
+                <div class="mt-8">
+                     <a href="#packages" class="bg-white text-teal-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition duration-300">Explore Tours</a>
+                </div>
+            </div>
+        </section>
+        <!-- Popular Destinations Section -->
+        <section id="destinations" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2">Popular Destinations</h2>
+                <p class="text-center text-gray-600 mb-12">Explore the world's most stunning places with us.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Destination Card 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760c0337?q=80&w=2070&auto=format&fit=crop" alt="Paris, France" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Paris';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Paris, France</h3>
+                            <p class="text-gray-600">The city of love, lights, and iconic art. A timeless destination for romantics and culture enthusiasts.</p>
+                        </div>
+                    </div>
+                    <!-- Destination Card 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1794&auto=format&fit=crop" alt="Tokyo, Japan" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Tokyo';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Tokyo, Japan</h3>
+                            <p class="text-gray-600">A dazzling metropolis where ancient traditions meet futuristic technology.</p>
+                        </div>
+                    </div>
+                    <!-- Destination Card 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1518548450227-205c2b06c3c2?q=80&w=2070&auto=format&fit=crop" alt="Santorini, Greece" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Santorini';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Santorini, Greece</h3>
+                            <p class="text-gray-600">Iconic blue-domed churches, stunning sunsets, and volcanic beaches await you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tour Packages Section -->
+        <section id="packages" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2">Our Tour Packages</h2>
+                <p class="text-center text-gray-600 mb-12">Tailored experiences for every type of traveler.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Package Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
+                        <div class="mb-4">
+                           <svg class="w-16 h-16 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">City Explorer</h3>
+                        <p class="text-gray-600 mb-4">Dive into the culture and history of the world's greatest cities.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More &rarr;</a>
+                    </div>
+                    <!-- Package Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
+                        <div class="mb-4">
+                            <svg class="w-16 h-16 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.884 5.036A9 9 0 0112 3c3.314 0 6 2.686 6 6v3m0 0v1a2 2 0 01-2 2H8a2 2 0 01-2-2v-1m0-3l-1.945-4.863A1 1 0 015.036 3h13.928a1 1 0 01.98.137L18 7m0 0a2 2 0 01-2 2h-4a2 2 0 01-2-2m0 0l-1-2.5"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Luxury Escapes</h3>
+                        <p class="text-gray-600 mb-4">Indulge in five-star comfort and exclusive experiences.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More &rarr;</a>
+                    </div>
+                    <!-- Package Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
+                        <div class="mb-4">
+                            <svg class="w-16 h-16 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Adventure Seeker</h3>
+                        <p class="text-gray-600 mb-4">For the thrill-seekers: hiking, diving, and exploring the wild.</p>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" class="rounded-lg shadow-xl" alt="Our Team" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Our+Team';">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-4">Why Choose Wanderlust?</h2>
+                        <p class="text-gray-600 mb-4">
+                            At Wanderlust, we believe travel is more than just seeing new places. It's about creating lasting memories, forging new connections, and discovering yourself along the way. Our team of expert travel planners is dedicated to crafting personalized journeys that go beyond the ordinary.
+                        </p>
+                        <p class="text-gray-600">
+                            With years of experience and a passion for exploration, we handle all the details so you can focus on what truly matters: enjoying your adventure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+        <!-- ...rest of your content remains the same... -->
+        <!-- (Popular Destinations, Tour Packages, About, Footer) -->
+
+        <!-- Popular Destinations Section, Tour Packages Section, etc. [Omitted for brevity, keep as in previous code above.] -->
+        <!-- About Us Section, Footer (no code changes from previous example) -->
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Wanderlust</h3>
+                    <p class="text-gray-400">Your journey begins here. Let's explore the world together.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#destinations" class="text-gray-400 hover:text-white">Destinations</a></li>
+                        <li><a href="#packages" class="text-gray-400 hover:text-white">Packages</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-gray-400">123 Travel Lane, Adventure City</p>
+                    <p class="text-gray-400">Email: contact@wanderlust.com</p>
+                    <p class="text-gray-400">Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 mt-8 border-t border-gray-700 pt-6">
+                &copy; 2024 Wanderlust Tours. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Container -->
+    <div id="n8n-chat"></div>
+
+    <!-- N8N Chatbot Script -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://tanya19.app.n8n.cloud/webhook/f0a8b38e-ea8e-407d-92ca-4325be8fed07/chat',
+            target: '#n8n-chat',
+            mode: 'window',
+            showWelcomeScreen: false,
+            initialMessages: [
+                'Welcome to Wanderlust Tours! 🌍',
+                'How can I help you plan your perfect adventure today?'
+            ],
+            i18n: {
+                en: {
+                    title: 'Welcome to Wanderlust Tours',
+                    footer: '',
+                    getStarted: 'New Chat',
+                    inputPlaceholder: 'Type your message here...'
+                }
+            }
+        });
+    </script>
+
+    <!-- Mobile menu toggle -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
